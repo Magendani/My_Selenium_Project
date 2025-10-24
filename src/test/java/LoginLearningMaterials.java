@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class LoginLearningMaterials {
 
     WebDriver driver;
-
+    String name;
     @BeforeClass
     public void launchBrowser() {
         driver = new ChromeDriver();
