@@ -21,5 +21,6 @@ public class HomePage {
         @FindBy(id = "nav-btn-practice")
         WebElement learningMaterialsButton_id;
 
-        public void clicklearningMaterialsButton() {learningMaterialsButton_id.click();}
+        public void clickLearningMaterialsButton() {learningMaterialsButton_id.click();}
+
 }
