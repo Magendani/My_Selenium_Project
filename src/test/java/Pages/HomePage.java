@@ -7,14 +7,19 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage {
 
     WebDriver driver;
+
     @FindBy(id = "overview-hero")
     WebElement homepageHeading_id;
 
-    public HomePage(WebDriver driver){
-        this.driver= driver;
+    public HomePage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public void verifyhomePageIsDisplayed(){
-        homepageHeading_id.isDisplayed();
+    public void verifyHomePageIsDisplayed() {homepageHeading_id.isDisplayed();
     }
+
+        @FindBy(id = "nav-btn-practice")
+        WebElement learningMaterialsButton_id;
+
+        public void clicklearningMaterialsButton() {learningMaterialsButton_id.click();}
 }
