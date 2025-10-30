@@ -15,27 +15,34 @@ public class XolaniLogInPage {
     @FindBy(id = "login-heading")
     WebElement logInPage_id;
 
-    @FindBy(id ="login-email")
+    @FindBy(id = "login-email")
     WebElement emailAddress_id;
 
-    @FindBy(id ="login-password")
+    @FindBy(id = "login-password")
     WebElement password_id;
 
-    @FindBy(id ="login-submit")
+    @FindBy(id = "login-submit")
     WebElement logInButton_id;
 
-    public XolaniLogInPage(WebDriver driver){
-        this.driver=driver;
+    public XolaniLogInPage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public void verifyLogInPageIsDisplayed(){logInPage_id.isDisplayed();}
+    public void verifyLogInPageIsDisplayed() {
+        logInPage_id.isDisplayed();
+    }
 
     public void enterEmailAddress(String email) {
         new WebDriverWait(driver, Duration.ofSeconds(8)).until(visibilityOf(emailAddress_id));
-    emailAddress_id.sendKeys();}
+        emailAddress_id.sendKeys(email);
+    }
 
-    public void enterPassword(String password) {emailAddress_id.sendKeys(password);}
+    public void enterPassword(String password) {
+        emailAddress_id.sendKeys(password);
+    }
 
-    public void clickLogInButton(){logInButton_id.click();}
+    public void clickLogInButton() {
+        logInButton_id.click();
+    }
 
 }

@@ -25,7 +25,6 @@ public class XolaniHomePage {
 
     public void verifyHomePageIsDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(homepageHeading_id));
-        verifyHomePageIsDisplayed();
     }
 
     public void clickLearningMaterialsButton() {
