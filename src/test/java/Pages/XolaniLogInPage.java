@@ -38,7 +38,7 @@ public class XolaniLogInPage {
     }
 
     public void enterPassword(String password) {
-        emailAddress_id.sendKeys(password);
+        password_id.sendKeys(password);
     }
 
     public void clickLogInButton() {
