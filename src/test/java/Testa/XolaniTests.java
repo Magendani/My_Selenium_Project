@@ -60,32 +60,48 @@ public class XolaniTests extends XolaniBase {
 
     @Test(dependsOnMethods = "selectDeviceTest")
     public void selectBrandTests() {
+
         xolaniWebAutomationAdvancePage.selectBrand("Xiaomi");
     }
 
     @Test(dependsOnMethods = "selectBrandTests")
     public void previewCellphoneTest() {
+
         xolaniWebAutomationAdvancePage.previewCellphone();
     }
 
     @Test(dependsOnMethods = "previewCellphoneTest")
     public void selectCellphoneStorageTest() {
+
         xolaniWebAutomationAdvancePage.selectCellphoneStorage();
     }
 
     @Test(dependsOnMethods = "selectCellphoneStorageTest")
     public void clickCellphoneColorDropdownTest() {
+
         xolaniWebAutomationAdvancePage.clickCellphoneColorDropdown();
     }
 
     @Test(dependsOnMethods = "clickCellphoneColorDropdownTest")
-    public void selectCellphoneColor() {
-        xolaniWebAutomationAdvancePage.selectCellphoneColor("");
+    public void selectCellphoneColorTest() {
+
+        xolaniWebAutomationAdvancePage.selectCellphoneColor("Blue");
     }
 
     @Test(dependsOnMethods = "selectCellphoneColorTest")
-    public void selectQuantity() {
-        xolaniWebAutomationAdvancePage.selectQuantity("2");
+    public void selectQuantityTest() {
+        xolaniWebAutomationAdvancePage.selectQuantity("4");
+    }
+
+    @Test(dependsOnMethods="selectQuantityTest")
+    public void deliveryAddressTest(){
+        xolaniWebAutomationAdvancePage.typeDeliveryAddress("Umlazi, Durban");
+    }
+
+    @Test(dependsOnMethods="deliveryAddressTest")
+        public void unitPriceTest(){
+        xolaniWebAutomationAdvancePage.displayUnitPrice();
     }
 }
+
 

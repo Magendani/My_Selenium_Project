@@ -25,7 +25,7 @@ public class XolaniWebAutomationAdvancePage {
     @FindBy(id = "deviceType")
     WebElement deviceTypeHead_id;
 
-    @FindBy(id  = "brand")
+    @FindBy(id = "brand")
     WebElement deviceSelect_id;
 
     @FindBy(id = "brand")
@@ -40,11 +40,17 @@ public class XolaniWebAutomationAdvancePage {
     @FindBy(id = "color")
     WebElement cellphoneColorDropdown_id;
 
-    @FindBy(id = "Blue")
+    @FindBy(id = "color")
     WebElement cellphoneColor_id;
 
-    @FindBy(id= "quantity")
+    @FindBy(id = "quantity")
     WebElement cellphoneQuantity_id;
+
+    @FindBy(id = "address")
+    WebElement deliveryAddress_id;
+
+    @FindBy(id ="unit-price-label")
+    WebElement unitPrice_id;
 
     public XolaniWebAutomationAdvancePage(WebDriver driver) {
         this.driver = driver;
@@ -67,10 +73,12 @@ public class XolaniWebAutomationAdvancePage {
     }
 
     public void selectDevice(String deviceType) {
+
         deviceTypeHead_id.sendKeys(deviceType);
     }
 
     public void selectBrand(String cellphoneBrand) {
+
         cellphoneBrand_id.sendKeys(cellphoneBrand);
     }
 
@@ -79,10 +87,12 @@ public class XolaniWebAutomationAdvancePage {
     }
 
     public void selectCellphoneStorage() {
+
         cellphoneStorage_id.click();
     }
 
     public void clickCellphoneColorDropdown() {
+
         cellphoneColorDropdown_id.click();
     }
 
@@ -90,8 +100,16 @@ public class XolaniWebAutomationAdvancePage {
         cellphoneColor_id.sendKeys(cellphoneColor);
     }
 
-    public void selectQuantity(String cellphoneQuantity){
+    public void selectQuantity(String cellphoneQuantity) {
         cellphoneQuantity_id.sendKeys(cellphoneQuantity);
+    }
+
+    public void typeDeliveryAddress(String deliveryAddress){
+        deliveryAddress_id.sendKeys(deliveryAddress);
+    }
+
+    public void displayUnitPrice(){
+        unitPrice_id.isDisplayed();
     }
 
 }
