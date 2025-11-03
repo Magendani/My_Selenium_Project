@@ -101,6 +101,7 @@ public class XolaniWebAutomationAdvancePage {
     }
 
     public void selectQuantity(String cellphoneQuantity) {
+        cellphoneQuantity_id.clear();
         cellphoneQuantity_id.sendKeys(cellphoneQuantity);
     }
 

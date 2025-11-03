@@ -90,7 +90,7 @@ public class XolaniTests extends XolaniBase {
 
     @Test(dependsOnMethods = "selectCellphoneColorTest")
     public void selectQuantityTest() {
-        xolaniWebAutomationAdvancePage.selectQuantity("4");
+        xolaniWebAutomationAdvancePage.selectQuantity("2");
     }
 
     @Test(dependsOnMethods="selectQuantityTest")
