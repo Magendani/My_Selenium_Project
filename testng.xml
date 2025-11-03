@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Latitude E7440/.vscode/cli/SeleniumJava5thGroup">
+        <classes>
+            <class name="Basics.LoginLearningMaterials">
+                <methods>
+                    <include name="startBrowser"/>
+                    <include name="verifyHomepageIsDisplayed"/>
+                    <include name="clicklearningMaterial"/>
+                    <include name="enterMail"/>
+                    <include name="enterPassword"/>
+                    <include name="clickLoginButton"/>
+                    <include name="verifyFormPageDisplayed"/>
+                    <include name="clickWebForm"/>
+                    <include name="enterUserName"/>
+                    <include name="enterEmail"/>
+                    <include name="selectAge"/>
+                    <include name="selectGender"/>
+                    <include name="selectCountry"/>
+                    <include name="selectExperienceLevel"/>
+                    <include name="selectSkills"/>
+                    <include name="typeMessage"/>
+                    <include name="selectTerms"/>
+                    <include name="clickSubmitButton"/>
+                </methods>
+            </class>
+            <class name="Testa.XolaniTests">
+                <methods>
+                    <include name="verifyHomePageIsDisplayedTests"/>
+                    <include name="clickLearningMaterialsButtonTests"/>
+                    <include name="verifyLogInPageIsDisplayedTests"/>
+                    <include name="enterEmailAddressTests"/>
+                    <include name="enterPasswordTests"/>
+                    <include name="clickLogInButton"/>
+                    <include name="verifyWelcomeMessageIsDisplayedTests"/>
+                    <include name="clickWebAutomationAdvanceTabTests"/>
+                    <include name="verifyInventoryFormTitleIsDisplayedTests"/>
+                    <include name="clickDeviceTypeDropdownTests"/>
+                    <include name="selectDeviceTest"/>
+                    <include name="selectBrandTests"/>
+                    <include name="previewCellphoneTest"/>
+                    <include name="selectCellphoneStorageTest"/>
+                    <include name="clickCellphoneColorDropdownTest"/>
+                    <include name="selectCellphoneColorTest"/>
+                    <include name="selectQuantityTest"/>
+                    <include name="deliveryAddressTest"/>
+                    <include name="unitPriceTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
