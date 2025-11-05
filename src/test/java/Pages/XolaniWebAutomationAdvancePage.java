@@ -49,8 +49,17 @@ public class XolaniWebAutomationAdvancePage {
     @FindBy(id = "address")
     WebElement deliveryAddress_id;
 
-    @FindBy(id ="unit-price-label")
+    @FindBy(id = "unit-price-label")
     WebElement unitPrice_id;
+
+    @FindBy(id = "quantity-value")
+    WebElement totalQuantity_id;
+
+    @FindBy(id = "subtotal-value")
+    WebElement displaySubTotal_id;
+
+    @FindBy(id="inventory-next-btn")
+    WebElement clickNextButton_id;
 
     public XolaniWebAutomationAdvancePage(WebDriver driver) {
         this.driver = driver;
@@ -105,12 +114,24 @@ public class XolaniWebAutomationAdvancePage {
         cellphoneQuantity_id.sendKeys(cellphoneQuantity);
     }
 
-    public void typeDeliveryAddress(String deliveryAddress){
+    public void typeDeliveryAddress(String deliveryAddress) {
         deliveryAddress_id.sendKeys(deliveryAddress);
     }
 
-    public void displayUnitPrice(){
+    public void displayUnitPrice() {
         unitPrice_id.isDisplayed();
+    }
+
+    public void totalQuantityValue() {
+        totalQuantity_id.isDisplayed();
+    }
+
+    public void SubTotal() {
+        displaySubTotal_id.isDisplayed();
+    }
+
+    public void clickNextButton(){
+        clickNextButton_id.click();
     }
 
 }

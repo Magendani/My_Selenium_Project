@@ -50,11 +50,13 @@ public class XolaniTests extends XolaniBase {
 
     @Test(dependsOnMethods = "verifyInventoryFormTitleIsDisplayedTests")
     public void clickDeviceTypeDropdownTests() {
+
         xolaniWebAutomationAdvancePage.clickDeviceTypeDropdown();
     }
 
     @Test(dependsOnMethods = "clickDeviceTypeDropdownTests")
     public void selectDeviceTest() {
+
         xolaniWebAutomationAdvancePage.selectDevice("Phone");
     }
 
@@ -93,14 +95,29 @@ public class XolaniTests extends XolaniBase {
         xolaniWebAutomationAdvancePage.selectQuantity("2");
     }
 
-    @Test(dependsOnMethods="selectQuantityTest")
-    public void deliveryAddressTest(){
+    @Test(dependsOnMethods = "selectQuantityTest")
+    public void deliveryAddressTest() {
         xolaniWebAutomationAdvancePage.typeDeliveryAddress("Umlazi, Durban");
     }
 
-    @Test(dependsOnMethods="deliveryAddressTest")
-        public void unitPriceTest(){
+    @Test(dependsOnMethods = "deliveryAddressTest")
+    public void unitPriceTest() {
         xolaniWebAutomationAdvancePage.displayUnitPrice();
+    }
+
+    @Test(dependsOnMethods = "unitPriceTest")
+    public void totalQuantityTest() {
+        xolaniWebAutomationAdvancePage.totalQuantityValue();
+    }
+
+    @Test(dependsOnMethods = "totalQuantityTest")
+    public void displaySubTotalTest() {
+        xolaniWebAutomationAdvancePage.SubTotal();
+    }
+
+    @Test(dependsOnMethods = "displaySubTotalTest")
+    public void clickNextButtonTest() {
+        xolaniWebAutomationAdvancePage.clickNextButton();
     }
 }
 
