@@ -101,23 +101,33 @@ public class XolaniTests extends XolaniBase {
     }
 
     @Test(dependsOnMethods = "deliveryAddressTest")
-    public void unitPriceTest() {
-        xolaniWebAutomationAdvancePage.displayUnitPrice();
-    }
-
-    @Test(dependsOnMethods = "unitPriceTest")
-    public void totalQuantityTest() {
-        xolaniWebAutomationAdvancePage.totalQuantityValue();
-    }
-
-    @Test(dependsOnMethods = "totalQuantityTest")
-    public void displaySubTotalTest() {
-        xolaniWebAutomationAdvancePage.SubTotal();
-    }
-
-    @Test(dependsOnMethods = "displaySubTotalTest")
     public void clickNextButtonTest() {
         xolaniWebAutomationAdvancePage.clickNextButton();
+    }
+
+    @Test(dependsOnMethods = "clickNextButtonTest")
+    public void expressRadioButtonTest() {
+        xolaniWebAutomationAdvancePage.clickExpressRadioButton();
+    }
+
+    @Test(dependsOnMethods = "expressRadioButtonTest")
+    public void warrantyRadioButtonTest() {
+        xolaniWebAutomationAdvancePage.clickWarrantyRadioButton();
+    }
+
+    @Test(dependsOnMethods = "warrantyRadioButtonTest")
+    public void discountFeeTest() {
+        xolaniWebAutomationAdvancePage.enterDiscountFee("SAVE20");
+    }
+
+    @Test(dependsOnMethods = "discountFeeTest")
+    public void discountButtonTest() {
+        xolaniWebAutomationAdvancePage.clickApplyButton();
+    }
+
+    @Test(dependsOnMethods="discountButtonTest")
+    public void addToCartButtonTest(){
+        xolaniWebAutomationAdvancePage.clickAddToCartButton();
     }
 }
 

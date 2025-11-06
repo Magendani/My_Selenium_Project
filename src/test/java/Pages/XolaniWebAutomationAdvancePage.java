@@ -49,17 +49,23 @@ public class XolaniWebAutomationAdvancePage {
     @FindBy(id = "address")
     WebElement deliveryAddress_id;
 
-    @FindBy(id = "unit-price-label")
-    WebElement unitPrice_id;
-
-    @FindBy(id = "quantity-value")
-    WebElement totalQuantity_id;
-
-    @FindBy(id = "subtotal-value")
-    WebElement displaySubTotal_id;
-
-    @FindBy(id="inventory-next-btn")
+    @FindBy(id = "inventory-next-btn")
     WebElement clickNextButton_id;
+
+    @FindBy(id = "shipping-option-express")
+    WebElement expressRadioButton_id;
+
+    @FindBy(id = "warranty-option-1yr")
+    WebElement warrantyRadioButton_id;
+
+    @FindBy(id = "discount-code")
+    WebElement discountFee_id;
+
+    @FindBy(id = "apply-discount-btn")
+    WebElement discountButton_id;
+
+    @FindBy(id="add-to-cart-btn")
+    WebElement addToCartButton_id;
 
     public XolaniWebAutomationAdvancePage(WebDriver driver) {
         this.driver = driver;
@@ -118,20 +124,27 @@ public class XolaniWebAutomationAdvancePage {
         deliveryAddress_id.sendKeys(deliveryAddress);
     }
 
-    public void displayUnitPrice() {
-        unitPrice_id.isDisplayed();
-    }
-
-    public void totalQuantityValue() {
-        totalQuantity_id.isDisplayed();
-    }
-
-    public void SubTotal() {
-        displaySubTotal_id.isDisplayed();
-    }
-
-    public void clickNextButton(){
+    public void clickNextButton() {
         clickNextButton_id.click();
     }
 
+    public void clickExpressRadioButton() {
+        expressRadioButton_id.click();
+    }
+
+    public void clickWarrantyRadioButton() {
+        warrantyRadioButton_id.click();
+    }
+
+    public void enterDiscountFee(String discountFee) {
+        discountFee_id.sendKeys(discountFee);
+    }
+
+    public void clickApplyButton() {
+        discountButton_id.click();
+    }
+
+    public void clickAddToCartButton(){
+       addToCartButton_id.click();
+    }
 }
