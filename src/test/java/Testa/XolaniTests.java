@@ -129,6 +129,18 @@ public class XolaniTests extends XolaniBase {
     public void addToCartButtonTest(){
         xolaniWebAutomationAdvancePage.clickAddToCartButton();
     }
+
+    @Test(dependsOnMethods="addToCartButtonTest")
+    public void deviceSelectionTest(){xolaniWebAutomationAdvancePage.selectDevice("laptop");}
+
+    @Test(dependsOnMethods="deviceSelectionTest")
+    public void brandTypeSelectionTest(){xolaniWebAutomationAdvancePage.brandSelection("macbook air");}
+
+    @Test(dependsOnMethods="brandTypeSelectionTest")
+    public void laptopStorageTest(){xolaniWebAutomationAdvancePage.clickStorageSize();}
+
+    @Test(dependsOnMethods="laptopStorageTest")
+    public void laptopColorTest(){xolaniWebAutomationAdvancePage.selectLaptopColor("black");}
 }
 
 

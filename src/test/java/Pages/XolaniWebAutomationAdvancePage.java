@@ -67,6 +67,21 @@ public class XolaniWebAutomationAdvancePage {
     @FindBy(id="add-to-cart-btn")
     WebElement addToCartButton_id;
 
+    @FindBy(id="deviceType")
+    WebElement deviceSelection_id;
+
+    @FindBy(id="brand")
+    WebElement brandTypeSelection_id;
+
+    @FindBy(id="storage-128GB")
+    WebElement laptopStorage_id;
+
+    @FindBy(id="color")
+    WebElement laptopColor_id;
+
+    @FindBy(id="quantity")
+    WebElement laptopQuantity_id;
+
     public XolaniWebAutomationAdvancePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -146,5 +161,25 @@ public class XolaniWebAutomationAdvancePage {
 
     public void clickAddToCartButton(){
        addToCartButton_id.click();
+    }
+
+    public void deviceSelection(String deviceSelection )  {
+        deviceSelection_id.sendKeys( deviceSelection);
+    }
+
+    public void brandSelection(String brandTypeSelection){
+        brandTypeSelection_id.sendKeys(brandTypeSelection);
+    }
+
+    public void clickStorageSize(){
+        laptopStorage_id.click();
+    }
+
+    public void selectLaptopColor( String laptopColor){
+        laptopColor_id.sendKeys(laptopColor);
+    }
+
+    public void selectLaptopQuantity(String laptopQuantity){
+        laptopQuantity_id
     }
 }
