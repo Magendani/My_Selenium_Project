@@ -64,23 +64,54 @@ public class XolaniWebAutomationAdvancePage {
     @FindBy(id = "apply-discount-btn")
     WebElement discountButton_id;
 
-    @FindBy(id="add-to-cart-btn")
+    @FindBy(id = "add-to-cart-btn")
     WebElement addToCartButton_id;
 
-    @FindBy(id="deviceType")
+    @FindBy(id = "deviceType")
     WebElement deviceSelection_id;
 
-    @FindBy(id="brand")
+    @FindBy(id = "brand")
     WebElement brandTypeSelection_id;
 
-    @FindBy(id="storage-128GB")
+    @FindBy(id = "storage-128GB")
     WebElement laptopStorage_id;
 
-    @FindBy(id="color")
+    @FindBy(id = "color")
     WebElement laptopColor_id;
 
-    @FindBy(id="quantity")
+    @FindBy(id = "quantity")
     WebElement laptopQuantity_id;
+
+    @FindBy(id = "address")
+    WebElement laptopDeliveryAddress_id;
+
+    @FindBy(id = "inventory-next-btn")
+    WebElement nextButton_id;
+
+    @FindBy(id = "shipping-option-express")
+    WebElement expressButton_id;
+
+    @FindBy(id = "warranty-option-1yr")
+    WebElement warrantyButton_id;
+
+    @FindBy(id = "discount-code")
+    WebElement displayDiscountFee_id;
+
+    @FindBy(id = "apply-discount-btn")
+    WebElement discountedButton_id;
+
+    @FindBy(id = "add-to-cart-btn")
+    WebElement addToCartButton2_id;
+
+    @FindBy(id = "review-cart-btn")
+    WebElement reviewCartOrderButton_id;
+
+    @FindBy(id = "confirm-cart-btn")
+    WebElement placeOrderButton_id;
+
+    @FindBy(id = "purchase-success-toast")
+    WebElement successfulOrderMessage_id;
+
 
     public XolaniWebAutomationAdvancePage(WebDriver driver) {
         this.driver = driver;
@@ -159,27 +190,71 @@ public class XolaniWebAutomationAdvancePage {
         discountButton_id.click();
     }
 
-    public void clickAddToCartButton(){
-       addToCartButton_id.click();
+    public void clickAddToCartButton() {
+        addToCartButton_id.click();
     }
 
-    public void deviceSelection(String deviceSelection )  {
-        deviceSelection_id.sendKeys( deviceSelection);
+    public void deviceSelection(String deviceSelection) {
+        deviceSelection_id.sendKeys(deviceSelection);
     }
 
-    public void brandSelection(String brandTypeSelection){
+    public void brandSelection(String brandTypeSelection) {
         brandTypeSelection_id.sendKeys(brandTypeSelection);
     }
 
-    public void clickStorageSize(){
+    public void clickStorageSize() {
         laptopStorage_id.click();
     }
 
-    public void selectLaptopColor( String laptopColor){
+    public void selectLaptopColor(String laptopColor) {
         laptopColor_id.sendKeys(laptopColor);
     }
 
-    public void selectLaptopQuantity(String laptopQuantity){
-        laptopQuantity_id
+    public void selectLaptopQuantity(String laptopQuantity) {
+        laptopQuantity_id.clear();
+        laptopQuantity_id.sendKeys(laptopQuantity);
     }
-}
+
+    public void typeLaptopDeliveryAddress(String laptopDeliveryAddress) {
+        laptopDeliveryAddress_id.sendKeys(laptopDeliveryAddress);
+    }
+
+    public void clickNxtButton() {
+        nextButton_id.click();
+    }
+
+    public void clickShippingMethod() {
+        expressButton_id.click();
+    }
+
+    public void selectWarrantyYear() {
+        warrantyButton_id.click();
+    }
+
+    public void typeDiscountFee(String displayDiscountFee) {
+        displayDiscountFee_id.sendKeys(displayDiscountFee);
+    }
+
+    public void pressApplyButton() {
+        discountButton_id.click();
+    }
+
+    public void clickAddToCartButton2() {
+        addToCartButton2_id.click();
+    }
+
+    public void clickReviewOrderCartButton() {
+        reviewCartOrderButton_id.click();
+    }
+
+    public void clickPlaceOrderButton() {
+        placeOrderButton_id.click();
+    }
+
+    public void displayOrderMessagePopUp() throws InterruptedException {
+        Thread.sleep(2000);
+        successfulOrderMessage_id.isDisplayed();
+    }
+
+    }
+

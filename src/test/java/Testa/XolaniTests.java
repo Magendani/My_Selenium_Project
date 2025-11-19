@@ -55,15 +55,17 @@ public class XolaniTests extends XolaniBase {
     }
 
     @Test(dependsOnMethods = "clickDeviceTypeDropdownTests")
-    public void selectDeviceTest() {
+    public void selectDeviceTest() throws InterruptedException {
 
         xolaniWebAutomationAdvancePage.selectDevice("Phone");
+        Thread.sleep(2000);
     }
 
     @Test(dependsOnMethods = "selectDeviceTest")
-    public void selectBrandTests() {
+    public void selectBrandTests() throws InterruptedException {
 
         xolaniWebAutomationAdvancePage.selectBrand("Xiaomi");
+        Thread.sleep(1000);
     }
 
     @Test(dependsOnMethods = "selectBrandTests")
@@ -73,9 +75,10 @@ public class XolaniTests extends XolaniBase {
     }
 
     @Test(dependsOnMethods = "previewCellphoneTest")
-    public void selectCellphoneStorageTest() {
+    public void selectCellphoneStorageTest() throws InterruptedException {
 
         xolaniWebAutomationAdvancePage.selectCellphoneStorage();
+        Thread.sleep(1000);
     }
 
     @Test(dependsOnMethods = "selectCellphoneStorageTest")
@@ -85,62 +88,165 @@ public class XolaniTests extends XolaniBase {
     }
 
     @Test(dependsOnMethods = "clickCellphoneColorDropdownTest")
-    public void selectCellphoneColorTest() {
+    public void selectCellphoneColorTest() throws InterruptedException {
 
         xolaniWebAutomationAdvancePage.selectCellphoneColor("Blue");
+        Thread.sleep(1000);
     }
 
     @Test(dependsOnMethods = "selectCellphoneColorTest")
-    public void selectQuantityTest() {
+    public void selectQuantityTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.selectQuantity("2");
+        Thread.sleep(1000);
     }
 
     @Test(dependsOnMethods = "selectQuantityTest")
-    public void deliveryAddressTest() {
+    public void deliveryAddressTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.typeDeliveryAddress("Umlazi, Durban");
+        Thread.sleep(1000);
     }
 
     @Test(dependsOnMethods = "deliveryAddressTest")
-    public void clickNextButtonTest() {
+    public void clickNextButtonTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.clickNextButton();
+        Thread.sleep(2000);
     }
 
     @Test(dependsOnMethods = "clickNextButtonTest")
-    public void expressRadioButtonTest() {
+    public void expressRadioButtonTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.clickExpressRadioButton();
+        Thread.sleep(1000);
     }
 
     @Test(dependsOnMethods = "expressRadioButtonTest")
-    public void warrantyRadioButtonTest() {
+    public void warrantyRadioButtonTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.clickWarrantyRadioButton();
+        Thread.sleep(1000);
     }
 
     @Test(dependsOnMethods = "warrantyRadioButtonTest")
-    public void discountFeeTest() {
+    public void discountFeeTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.enterDiscountFee("SAVE20");
+        Thread.sleep(1000);
     }
 
     @Test(dependsOnMethods = "discountFeeTest")
-    public void discountButtonTest() {
+    public void discountButtonTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.clickApplyButton();
+        Thread.sleep(1000);
     }
 
-    @Test(dependsOnMethods="discountButtonTest")
-    public void addToCartButtonTest(){
+    @Test(dependsOnMethods = "discountButtonTest")
+    public void addToCartButtonTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.clickAddToCartButton();
+        Thread.sleep(1000);
     }
 
-    @Test(dependsOnMethods="addToCartButtonTest")
-    public void deviceSelectionTest(){xolaniWebAutomationAdvancePage.selectDevice("laptop");}
+    @Test(dependsOnMethods = "addToCartButtonTest")
+    public void deviceSelectionTest() throws InterruptedException {
+        xolaniWebAutomationAdvancePage.selectDevice("laptop");
+        Thread.sleep(1000);
+    }
 
-    @Test(dependsOnMethods="deviceSelectionTest")
-    public void brandTypeSelectionTest(){xolaniWebAutomationAdvancePage.brandSelection("macbook air");}
+    @Test(dependsOnMethods = "deviceSelectionTest")
+    public void brandTypeSelectionTest() throws InterruptedException {
+        xolaniWebAutomationAdvancePage.brandSelection("macbook air");
+        Thread.sleep(1000);
+    }
 
-    @Test(dependsOnMethods="brandTypeSelectionTest")
-    public void laptopStorageTest(){xolaniWebAutomationAdvancePage.clickStorageSize();}
+    @Test(dependsOnMethods = "brandTypeSelectionTest")
+    public void laptopStorageTest() throws InterruptedException {
+        xolaniWebAutomationAdvancePage.clickStorageSize();
+        Thread.sleep(1000);
+    }
 
-    @Test(dependsOnMethods="laptopStorageTest")
-    public void laptopColorTest(){xolaniWebAutomationAdvancePage.selectLaptopColor("black");}
+    @Test(dependsOnMethods = "laptopStorageTest")
+    public void laptopColorTest() throws InterruptedException {
+        xolaniWebAutomationAdvancePage.selectLaptopColor("black");
+        Thread.sleep(1000);
+    }
+
+    @Test(dependsOnMethods = "laptopColorTest")
+    public void laptopQuantityTest() {
+        xolaniWebAutomationAdvancePage.selectLaptopQuantity("1");
+    }
+
+    @Test(dependsOnMethods = "laptopQuantityTest")
+    public void laptopDeliveryAddressTest() {
+        xolaniWebAutomationAdvancePage.typeLaptopDeliveryAddress("Umlazi, Durban");
+    }
+
+    @Test(dependsOnMethods = "laptopDeliveryAddressTest")
+    public void nextButtonTest() {
+        xolaniWebAutomationAdvancePage.clickNxtButton();
+    }
+
+    @Test(dependsOnMethods = "nextButtonTest")
+    public void expressButtonTest() {
+        xolaniWebAutomationAdvancePage.clickShippingMethod();
+    }
+
+    @Test(dependsOnMethods = "expressButtonTest")
+    public void warrantyButtonTest() {
+        xolaniWebAutomationAdvancePage.selectWarrantyYear();
+    }
+
+    @Test(dependsOnMethods = "warrantyButtonTest")
+    public void enterDiscountFeeTest() {
+        xolaniWebAutomationAdvancePage.typeDiscountFee("SAVE10");
+    }
+
+    @Test(dependsOnMethods = "enterDiscountFeeTest")
+    public void pressApplyButtonTest() {
+        xolaniWebAutomationAdvancePage.pressApplyButton();
+    }
+
+    @Test(dependsOnMethods = "pressApplyButtonTest")
+    public void clickAddToCartButton2Test() {
+        xolaniWebAutomationAdvancePage.clickAddToCartButton2();
+    }
+
+    @Test(dependsOnMethods = "clickAddToCartButton2Test")
+    public void clickReviewOrderCartButtonTest() {
+        xolaniWebAutomationAdvancePage.clickReviewOrderCartButton();
+    }
+
+    @Test(dependsOnMethods = "clickReviewOrderCartButtonTest")
+    public void clickPlaceOrderButtonTest() {
+        xolaniWebAutomationAdvancePage.clickPlaceOrderButton();
+    }
+
+    @Test(dependsOnMethods = "clickPlaceOrderButtonTest")
+    public void successfulOrderMessageTest() throws InterruptedException {
+        xolaniWebAutomationAdvancePage.displayOrderMessagePopUp();
+    }
+
+    @Test(dependsOnMethods = "successfulOrderMessageTest")
+    public void viewInvoiceButtonTest() throws InterruptedException {
+        xolaniInvoicePage.clickViewInvoiceButton();
+    }
+
+    @Test(dependsOnMethods = "viewInvoiceButtonTest")
+    public void viewInvoiceHistoryButtonTest() throws InterruptedException {
+        xolaniInvoicePage.clickInvoiceHistoryButton();
+    }
+
+    @Test(dependsOnMethods = "viewInvoiceHistoryButtonTest")
+    public void saveAsPdfButtonTest() {
+        xolaniInvoicePage.clickSaveAsPdfButton();
+    }
+
+//    @Test(dependsOnMethods = "saveAsPdfButtonTest")
+//    public void clearAllInvoiceButtonTest() {
+//        .clickClearAllInvoiceButton();
 }
+
+//    @Test(dependsOnMethods = "clearAllInvoiceButtonTest")
+//    public void closeInvoicePageTest() {
+//        xolaniWebAutomationAdvancePage.clickCloseInvoicePageIcon();
+//    }
+
+
+//}
 
 
