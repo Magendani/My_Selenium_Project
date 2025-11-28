@@ -1,5 +1,6 @@
 package Testa;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class XolaniTests extends XolaniBase {
@@ -17,6 +18,33 @@ public class XolaniTests extends XolaniBase {
     public void verifyLogInPageIsDisplayedTests() {
         xolaniLogInPage.verifyLogInPageIsDisplayed();
     }
+    @Test(dependsOnMethods ="verifyLogInPageIsDisplayedTests")
+    public void invalidPasswordTest() {
+        xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
+        xolaniLogInPage.enterPassword("Lela@19030");
+        xolaniLogInPage.clickLogInButton();
+        // xolaniLogInPage.verifyLogInPageIsDisplayed();
+        xolaniLogInPage.handleAlert();
+//        xolaniLogInPage.enterPassword("LeLa@190301");
+//        xolaniLogInPage.clickLogInButton();
+    }
+    // @Test(priority = 3)
+    @Test(dependsOnMethods ="invalidPasswordTest")
+    public void validLoginCredentialsTest() {
+       // xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
+        //xolaniLogInPage.handleAlert();
+
+        xolaniLogInPage.enterPassword("LeLa@190301");
+        xolaniLogInPage.clickLogInButton();
+        xolaniLearningMaterialsPage.verifyHeading();
+        //xolaniLogInPage.handleAlert();
+    }
+
+
+//    @AfterTest
+//    public void closeBrowser () {
+//        driver.close();
+//    }
 
     @Test(dependsOnMethods = "clickLearningMaterialsButtonTests")
     public void enterEmailAddressTests() {
@@ -24,7 +52,7 @@ public class XolaniTests extends XolaniBase {
     }
 
     @Test(dependsOnMethods = "enterEmailAddressTests")
-    public void enterPasswordTests() {
+    public void enterPasswordTests() throws InterruptedException {
         xolaniLogInPage.enterPassword("LeLa@190301");
     }
 
@@ -236,10 +264,14 @@ public class XolaniTests extends XolaniBase {
         xolaniInvoicePage.clickSaveAsPdfButton();
     }
 
+
+}
+
+
 //    @Test(dependsOnMethods = "saveAsPdfButtonTest")
 //    public void clearAllInvoiceButtonTest() {
 //        .clickClearAllInvoiceButton();
-}
+
 
 //    @Test(dependsOnMethods = "clearAllInvoiceButtonTest")
 //    public void closeInvoicePageTest() {

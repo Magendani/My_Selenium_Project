@@ -1,8 +1,10 @@
 package Pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -33,11 +35,15 @@ public class XolaniLogInPage {
     }
 
     public void enterEmailAddress(String email) {
-        new WebDriverWait(driver, Duration.ofSeconds(8)).until(visibilityOf(emailAddress_id));
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(visibilityOf(emailAddress_id));
+        emailAddress_id.clear();
         emailAddress_id.sendKeys(email);
     }
 
     public void enterPassword(String password) {
+       // new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(password_id));
+        //password_id.clear();
+        password_id.click();
         password_id.sendKeys(password);
     }
 
@@ -45,4 +51,17 @@ public class XolaniLogInPage {
         logInButton_id.click();
     }
 
+    public void handleAlert(){ // Wait for alert to appear
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.alertIsPresent());
+
+// Switch to alert
+        Alert alert = driver.switchTo().alert();
+
+// Click OK
+        alert.accept();}
+
+    public void closeBrowser() {
+
+    }
 }
