@@ -41,13 +41,13 @@ public class XolaniLogInPage {
     }
 
     public void enterPassword(String password) {
-       // new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(password_id));
-        //password_id.clear();
-        password_id.click();
+       new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(password_id));
+        password_id.clear();
         password_id.sendKeys(password);
     }
 
     public void clickLogInButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(40)).until(visibilityOf(logInButton_id));
         logInButton_id.click();
     }
 

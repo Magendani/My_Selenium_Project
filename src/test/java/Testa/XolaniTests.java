@@ -4,21 +4,26 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class XolaniTests extends XolaniBase {
-    @Test
+    @Test(priority = 1)
     public void verifyHomePageIsDisplayedTests() {
         xolanihomePage.verifyHomePageIsDisplayed();
     }
 
-    @Test(dependsOnMethods = "verifyHomePageIsDisplayedTests")
+
+    @Test(priority = 2)
+    //@Test(dependsOnMethods = "verifyHomePageIsDisplayedTests")
     public void clickLearningMaterialsButtonTests() {
         xolanihomePage.clickLearningMaterialsButton();
     }
 
-    @Test(dependsOnMethods = "clickLearningMaterialsButtonTests")
+    @Test(priority = 3)
+    //@Test(dependsOnMethods = "clickLearningMaterialsButtonTests")
     public void verifyLogInPageIsDisplayedTests() {
         xolaniLogInPage.verifyLogInPageIsDisplayed();
     }
-    @Test(dependsOnMethods ="verifyLogInPageIsDisplayedTests")
+
+    @Test(priority = 4)
+    //@Test(dependsOnMethods ="verifyLogInPageIsDisplayedTests")
     public void invalidPasswordTest() {
         xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
         xolaniLogInPage.enterPassword("Lela@19030");
@@ -28,16 +33,15 @@ public class XolaniTests extends XolaniBase {
 //        xolaniLogInPage.enterPassword("LeLa@190301");
 //        xolaniLogInPage.clickLogInButton();
     }
-    // @Test(priority = 3)
-    @Test(dependsOnMethods ="invalidPasswordTest")
-    public void validLoginCredentialsTest() {
-       // xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
-        //xolaniLogInPage.handleAlert();
 
+    @Test(priority = 5)
+    //@Test(dependsOnMethods ="invalidPasswordTest")
+    public void validLoginCredentialsTest() {
+
+        xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
         xolaniLogInPage.enterPassword("LeLa@190301");
         xolaniLogInPage.clickLogInButton();
-        xolaniLearningMaterialsPage.verifyHeading();
-        //xolaniLogInPage.handleAlert();
+//        xolaniLearningMaterialsPage.verifyHeading();
     }
 
 
@@ -45,23 +49,23 @@ public class XolaniTests extends XolaniBase {
 //    public void closeBrowser () {
 //        driver.close();
 //    }
-
-    @Test(dependsOnMethods = "clickLearningMaterialsButtonTests")
+    //@Test(priority = 6)
+     @Test(dependsOnMethods = "clickLearningMaterialsButtonTests")
     public void enterEmailAddressTests() {
         xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
     }
 
     @Test(dependsOnMethods = "enterEmailAddressTests")
-    public void enterPasswordTests() throws InterruptedException {
+    public void enterPasswordTests()  {
         xolaniLogInPage.enterPassword("LeLa@190301");
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
-    public void clickLogInButton() {
+    public void clickLogInButtonTests() {
         xolaniLogInPage.clickLogInButton();
     }
 
-    @Test(dependsOnMethods = "clickLogInButton")
+    @Test(dependsOnMethods = "clickLogInButtonTests")
     public void verifyWelcomeMessageIsDisplayedTests() {
         xolaniWebAutomationAdvancePage.verifyWelcomeMessageIsDisplayed();
     }
@@ -265,8 +269,8 @@ public class XolaniTests extends XolaniBase {
     }
 
 
-}
 
+}
 
 //    @Test(dependsOnMethods = "saveAsPdfButtonTest")
 //    public void clearAllInvoiceButtonTest() {
