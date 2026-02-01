@@ -14,6 +14,7 @@ public class XolaniTests extends XolaniBase {
     //@Test(dependsOnMethods = "verifyHomePageIsDisplayedTests")
     public void clickLearningMaterialsButtonTests() {
         xolanihomePage.clickLearningMaterialsButton();
+        xolaniTakesScreenshots.takesSnapShot(driver,"LearningMaterialPage");
     }
 
     @Test(priority = 3)
@@ -24,24 +25,23 @@ public class XolaniTests extends XolaniBase {
 
     @Test(priority = 4)
     //@Test(dependsOnMethods ="verifyLogInPageIsDisplayedTests")
-    public void invalidPasswordTest() {
+    public void invalidPasswordTest() throws InterruptedException {
+        xolanihomePage.clickLearningMaterialsButton();
         xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
         xolaniLogInPage.enterPassword("Lela@19030");
         xolaniLogInPage.clickLogInButton();
-        // xolaniLogInPage.verifyLogInPageIsDisplayed();
+        Thread.sleep(3000);
         xolaniLogInPage.handleAlert();
-//        xolaniLogInPage.enterPassword("LeLa@190301");
-//        xolaniLogInPage.clickLogInButton();
     }
 
     @Test(priority = 5)
     //@Test(dependsOnMethods ="invalidPasswordTest")
     public void validLoginCredentialsTest() {
-
+        xolanihomePage.clickLearningMaterialsButton();
         xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
         xolaniLogInPage.enterPassword("LeLa@190301");
         xolaniLogInPage.clickLogInButton();
-//        xolaniLearningMaterialsPage.verifyHeading();
+        xolaniLearningMaterialsPage.verifyHeading();
     }
 
 
@@ -52,12 +52,12 @@ public class XolaniTests extends XolaniBase {
     //@Test(priority = 6)
      @Test(dependsOnMethods = "clickLearningMaterialsButtonTests")
     public void enterEmailAddressTests() {
-        xolaniLogInPage.enterEmailAddress("magendani01@gmail.com");
+        xolaniLogInPage.enterEmailAddress(readFromFile.username);
     }
 
     @Test(dependsOnMethods = "enterEmailAddressTests")
     public void enterPasswordTests()  {
-        xolaniLogInPage.enterPassword("LeLa@190301");
+        xolaniLogInPage.enterPassword(readFromFile.password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
