@@ -4,14 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+import static org.testng.Assert.assertEquals;
 
 public class XolaniWebAutomationAdvancePage {
 
     WebDriver driver;
+
+    static Double unitPrice;
 
     @FindBy(id = "practice-heading")
     WebElement welcomeMessage_id;
@@ -112,6 +116,12 @@ public class XolaniWebAutomationAdvancePage {
     @FindBy(id = "purchase-success-toast")
     WebElement successfulOrderMessage_id;
 
+    @FindBy(id="unit-price-value")
+    WebElement unitPriceValue_id;
+
+    @FindBy(id="breakdown-total-value")
+    WebElement totalAmount_id;
+
 
     public XolaniWebAutomationAdvancePage(WebDriver driver) {
         this.driver = driver;
@@ -170,7 +180,18 @@ public class XolaniWebAutomationAdvancePage {
         deliveryAddress_id.sendKeys(deliveryAddress);
     }
 
+
+
     public void clickNextButton() {
+            String stringUnitPrice= unitPriceValue_id.getText();
+            System.out.println(stringUnitPrice);
+
+            String stringUnitPriceWithoutR = stringUnitPrice.replace("R","");
+            System.out.println(stringUnitPriceWithoutR);
+
+            unitPrice = Double.parseDouble(stringUnitPriceWithoutR);
+            System.out.println(stringUnitPriceWithoutR);
+
         clickNextButton_id.click();
     }
 
@@ -188,6 +209,22 @@ public class XolaniWebAutomationAdvancePage {
 
     public void clickApplyButton() {
         discountButton_id.click();
+    }
+
+    public void verifyDiscountApplied(){
+        Double discount = unitPrice * 0.1;
+        System.out.println(discount);
+        Double expectedActualPrice = unitPrice - discount;
+        System.out.println(expectedActualPrice);
+
+        String stringTotalAmount = (totalAmount_id.getText());
+        String stringTotalAmountWithOutR = (stringTotalAmount.replace("R",""));
+
+        Double ActualTotalAmount = Double.parseDouble(stringTotalAmountWithOutR);
+        System.out.println(ActualTotalAmount);
+
+        Assert.assertEquals(expectedActualPrice, ActualTotalAmount);
+
     }
 
     public void clickAddToCartButton() {

@@ -14,7 +14,7 @@ public class XolaniTests extends XolaniBase {
     //@Test(dependsOnMethods = "verifyHomePageIsDisplayedTests")
     public void clickLearningMaterialsButtonTests() {
         xolanihomePage.clickLearningMaterialsButton();
-        xolaniTakesScreenshots.takesSnapShot(driver,"LearningMaterialPage");
+        xolaniTakesScreenshots.takesSnapShot(driver,"LearningMaterialPage ");
     }
 
     @Test(priority = 3)
@@ -160,6 +160,10 @@ public class XolaniTests extends XolaniBase {
     public void discountFeeTest() throws InterruptedException {
         xolaniWebAutomationAdvancePage.enterDiscountFee("SAVE20");
         Thread.sleep(1000);
+    }
+    @Test(dependsOnMethods = "discountFeeTest")
+    public void verifyDiscountAppliedTest(){
+        xolaniWebAutomationAdvancePage.verifyDiscountApplied();
     }
 
     @Test(dependsOnMethods = "discountFeeTest")
